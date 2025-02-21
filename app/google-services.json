@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "76564764052",
+    "project_id": "nubullstocks-f5897",
+    "storage_bucket": "nubullstocks-f5897.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76564764052:android:a06801b68fd7443785ab81",
+        "android_client_info": {
+          "package_name": "com.example.nubullstocksv2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuBBgS8FVUXWDKkwF8YnftYFjp32KFOaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

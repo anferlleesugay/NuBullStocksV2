@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Student Number -->
+        <EditText
+            android:id="@+id/etStudentNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Student Number"
+            android:inputType="number"
+            android:importantForAutofill="no"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- First Name -->
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Middle Name (Optional) -->
+        <EditText
+            android:id="@+id/etMiddleName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Middle Name (Optional)"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Last Name -->
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Contact Number -->
+        <EditText
+            android:id="@+id/etContactNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contact Number"
+            android:inputType="phone"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Password Field with Toggle -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword|textVisiblePassword"
+            android:importantForAutofill="no"
+            android:drawableEnd="@android:drawable/ic_menu_view"
+            android:layout_marginBottom="12dp"
+            android:contentDescription="Password input field with visibility toggle" />
+
+        <!-- Confirm Password Field with Toggle -->
+        <EditText
+            android:id="@+id/etVerifyPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Verify Password"
+            android:inputType="textPassword|textVisiblePassword"
+            android:importantForAutofill="no"
+            android:drawableEnd="@android:drawable/ic_menu_view"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Confirm password input field with visibility toggle" />
+
+        <!-- Sign Up Button -->
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:layout_gravity="center"
+            android:paddingVertical="12dp"
+            android:backgroundTint="#8A4DD0"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <!-- Already Have an Account -->
+        <TextView
+            android:id="@+id/tvAlreadyHaveAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Already have an account? Log in"
+            android:textColor="#8A4DD0"
+            android:textSize="14sp"
+            android:paddingTop="16dp"
+            android:clickable="true"
+            android:focusable="true"/>
+
+    </LinearLayout>
+</ScrollView>
