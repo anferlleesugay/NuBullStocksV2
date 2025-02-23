@@ -3,6 +3,8 @@
 ## Overview
 NUBULLSTOCKS is a shopping app developed for a school project. The app allows users to browse products, add them to the cart, place pre-orders, and track stock availability. Admin users can manage products, receive pre-order notifications, and handle other app functionalities.
 
+CREATED BY: ANFERL LEE SUGAY & MERNER MAGTOTO
+
 ## Features
 - **User Features:**
   - View product details (name, image, stock availability)
