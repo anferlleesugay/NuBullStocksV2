@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="WhiteSearchView" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="colorControlNormal">#FFFFFF</item> <!-- Icon color -->
+        <item name="android:textColorHint">#FFFFFF</item> <!-- Hint color -->
+        <item name="android:textColor">#FFFFFF</item> <!-- Text color -->
+    </style>
+
 </resources>

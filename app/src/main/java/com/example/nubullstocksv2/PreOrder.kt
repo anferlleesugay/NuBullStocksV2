@@ -2,8 +2,13 @@ package com.example.nubullstocksv2
 
 data class PreOrder(
     val orderId: String = "",
-    val customerName: String = "",
+    val firstName: String = "",
+    val lastName: String = "",
+    val middleName: String = "",
+    val productId: String = "",
     val productName: String = "",
-    val quantity: Int = 0,
-    var status: String = "Pending"
+    val status: String = "",
+    val stock: Int = 0,
+    val userEmail: String = "",
+    val pickupDateTime: String = ""
 )

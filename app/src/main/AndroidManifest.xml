@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Camera & Storage Permissions -->
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <!-- Scoped Storage for Android 10+ -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- Scoped Storage for Android 10+ -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
@@ -25,7 +25,24 @@
         android:theme="@style/Theme.NuBullStocksV2"
         android:usesCleartextTraffic="true">
 
-        <!-- LoginActivity as Launcher -->
+        <!-- Firebase Database Debugging -->
+        <meta-data
+            android:name="firebase.database.debug"
+            android:value="true" />
+
+        <!-- Barcode Scanner -->
+        <activity
+            android:name=".BarcodeActivity"
+            android:exported="false" /> <!-- QR Code Scanner -->
+        <activity
+            android:name=".QRCodeActivity"
+            android:exported="false" /> <!-- Payment -->
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="false" /> <!-- Cart -->
+        <activity
+            android:name=".CartActivity"
+            android:exported="false" /> <!-- LoginActivity (Launcher) -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -33,27 +50,34 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- MainActivity -->
-        <activity android:name=".MainActivity" android:exported="true" />
-
-        <!-- Admin Dashboard -->
-        <activity android:name=".AdminDashboardActivity" android:exported="true" />
-
-        <!-- Register Activity (formerly SignUpActivity) -->
-        <activity android:name=".SignUpActivity" android:exported="true" />
-
-        <!-- Product Management Screens -->
-        <activity android:name=".EditProductActivity" android:exported="false" />
-        <activity android:name=".ProductListActivity" android:exported="false" />
-        <activity android:name=".AddProductActivity" android:exported="false" />
-
-        <!-- Product Details Activity -->
-        <activity android:name=".ProductDetailsActivity" android:exported="true" />
-
-        <!-- PreOrder Activity -->
-        <activity android:name=".PreOrderActivity" />
-
+        </activity> <!-- Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" /> <!-- Admin Dashboard -->
+        <activity
+            android:name=".AdminDashboardActivity"
+            android:exported="true" /> <!-- Register Activity -->
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true" /> <!-- Product Management Screens -->
+        <activity
+            android:name=".EditProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddProductActivity"
+            android:exported="false" /> <!-- Product Details -->
+        <activity
+            android:name=".ProductDetailsActivity"
+            android:exported="true" /> <!-- PreOrder Activity -->
+        <activity
+            android:name=".PreOrderActivity"
+            android:exported="false" /> <!-- Profile Activity (Added) -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
     </application>
+
 </manifest>

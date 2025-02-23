@@ -25,27 +25,28 @@ class AddProductActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddProductBinding
     private var imageUri: Uri? = null
     private lateinit var s3Client: AmazonS3Client
-    private val s3BucketName = "nubullstocks" // 🔹 Your AWS S3 bucket name
+    private val s3BucketName = "nubullstocks"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 🔹 Initialize AWS S3 Client
+        // Initialize AWS S3 Client
         initializeAWS()
 
-        // 🔹 Back Button
+        // Back Button (Redirects to AdminDashboardActivity)
         binding.btnBack.setOnClickListener {
-            onBackPressed()
+            startActivity(Intent(this, AdminDashboardActivity::class.java))
+            finish()
         }
 
-        // 🔹 Choose Image Button
-        binding.btnChooseImage.setOnClickListener {
+        // Click ImageView to Pick Image
+        binding.ivProductImage.setOnClickListener {
             openImagePicker()
         }
 
-        // 🔹 Add Product Button
+        // Add Product Button
         binding.btnAddProduct.setOnClickListener {
             addProduct()
         }
@@ -55,7 +56,7 @@ class AddProductActivity : AppCompatActivity() {
         try {
             val credentialsProvider = CognitoCachingCredentialsProvider(
                 applicationContext,
-                "ap-southeast-2:d1dd8673-bf97-4bbc-b2c8-807a4d0ea6d0", // 🔹 Ensure this is correct
+                "ap-southeast-2:d1dd8673-bf97-4bbc-b2c8-807a4d0ea6d0",
                 Regions.AP_SOUTHEAST_2
             )
             s3Client = AmazonS3Client(credentialsProvider)
@@ -75,7 +76,7 @@ class AddProductActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == IMAGE_PICKER_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
             imageUri = data.data
-            binding.ivProductImage.setImageURI(imageUri) // Display selected image
+            binding.ivProductImage.setImageURI(imageUri) // 🔹 Display selected image
         }
     }
 
@@ -89,12 +90,10 @@ class AddProductActivity : AppCompatActivity() {
             return
         }
 
-        val productId = UUID.randomUUID().toString() // 🔹 Unique Product ID
-
-        // 🔹 Create product object (imageURL is empty for now)
+        val productId = UUID.randomUUID().toString()
         val product = Product(productId, name, price.toDouble(), stock.toInt(), "")
 
-        // 🔹 Upload image first, then save to Firebase
+        // Upload image first, then save to Firebase
         uploadImageToS3(productId, product)
     }
 
@@ -111,14 +110,14 @@ class AddProductActivity : AppCompatActivity() {
                 }
 
                 val request = PutObjectRequest(s3BucketName, "$productId.jpg", file)
+                Log.d("AWS_UPLOAD", "Uploading file: ${file.absolutePath}")
 
                 Executors.newSingleThreadExecutor().execute {
                     try {
-                        // 🔹 Upload to S3
                         s3Client.putObject(request)
                         val imageUrl = "https://$s3BucketName.s3.amazonaws.com/$productId.jpg"
+                        Log.d("AWS_UPLOAD", "Upload Success: $imageUrl")
 
-                        // 🔹 Save Product to Firebase with Image URL
                         saveProductToFirebase(productId, product.copy(imageURL = imageUrl))
 
                     } catch (e: Exception) {

@@ -28,5 +28,11 @@ class AdminDashboardActivity : AppCompatActivity() {
         binding.btnViewOrders.setOnClickListener {
             startActivity(Intent(this, PreOrderActivity::class.java))
         }
+
+        // Logout functionality
+        binding.btnLogout.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 }

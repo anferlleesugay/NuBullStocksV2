@@ -1,9 +1,11 @@
 package com.example.nubullstocksv2
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
@@ -18,9 +20,19 @@ class EditProductActivity : AppCompatActivity() {
 
     private var productId: String? = null
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_product)
+
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
+        btnBack.setOnClickListener {
+            val intent = Intent(this, ProductListActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
         etProductName = findViewById(R.id.etProductName)
         etProductPrice = findViewById(R.id.etProductPrice)
@@ -72,5 +84,7 @@ class EditProductActivity : AppCompatActivity() {
         }.addOnFailureListener { e ->
             Log.e("EditProductActivity", "Failed to delete product", e)
         }
+
     }
+
 }

@@ -1,67 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="30dp"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Back Button -->
-        <Button
+        <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back to Admin Dashboard"
+            android:src="@drawable/back_icon"
+            android:elevation="4dp"
+            android:padding="8dp"
+            android:layout_gravity="start"
+            android:layout_marginBottom="16dp" />
 
-        <!-- Product Name -->
-        <EditText
-            android:id="@+id/etProductName"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Product Name" />
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-        <!-- Product Price -->
-        <EditText
-            android:id="@+id/etProductPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Price"
-            android:inputType="numberDecimal" />
+            <EditText
+                android:id="@+id/etProductName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Product Name"
+                android:padding="12dp"
+                android:background="@drawable/rounded_edittext"
+                android:textSize="16sp"
+                android:fontFamily="@font/roboto" />
 
-        <!-- Product Stock Quantity -->
-        <EditText
-            android:id="@+id/etProductStock"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Stock Quantity"
-            android:inputType="number" />
+            <EditText
+                android:id="@+id/etProductPrice"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Price"
+                android:inputType="numberDecimal"
+                android:padding="12dp"
+                android:background="@drawable/rounded_edittext"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto" />
 
-        <!-- Product Image -->
-        <ImageView
-            android:id="@+id/ivProductImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            android:src="@android:drawable/ic_menu_camera"
-            android:scaleType="centerCrop"
-            android:contentDescription="Product Image" />
+            <EditText
+                android:id="@+id/etProductStock"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Stock Quantity"
+                android:inputType="number"
+                android:padding="12dp"
+                android:background="@drawable/rounded_edittext"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto" />
 
-        <!-- Choose Image Button -->
-        <Button
-            android:id="@+id/btnChooseImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Choose Image" />
+            <ImageView
+                android:id="@+id/ivProductImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_imageview"
+                android:clickable="true"
+                android:contentDescription="Product Image"
+                android:focusable="true"
+                android:src="@drawable/ic_camera" />
 
-        <!-- Add Product Button -->
-        <Button
-            android:id="@+id/btnAddProduct"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add Product" />
+            <Button
+                android:id="@+id/btnAddProduct"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Add Product"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/buttonColor"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

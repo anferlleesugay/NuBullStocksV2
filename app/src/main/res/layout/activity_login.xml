@@ -3,8 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="20dp"
+    android:gravity="center"
+    android:background="@drawable/bg_main"
+    >
 
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/final_logo"
+        />
     <!-- Email Input -->
     <EditText
         android:id="@+id/etEmail"
@@ -12,7 +21,14 @@
         android:layout_height="wrap_content"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/roboto"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        />
+
+
+
 
     <!-- Password Field with Toggle -->
     <RelativeLayout
@@ -25,8 +41,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:inputType="textPassword"
-            android:paddingEnd="50dp"/>
+            android:paddingEnd="50dp"
+            android:fontFamily="@font/roboto"
+            />
 
         <ImageButton
             android:id="@+id/btnTogglePassword"
@@ -45,7 +65,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Log In"
-        android:layout_marginBottom="16dp"/>
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/buttonColor"
+        android:fontFamily="@font/roboto"/>
 
     <!-- Navigate to Sign Up -->
     <TextView
@@ -53,9 +76,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Don't have an account? Sign up"
-        android:textColor="#8A4DD0"
+        android:textColor="@color/white"
         android:layout_gravity="center"
         android:paddingTop="8dp"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:fontFamily="@font/roboto"
+        />
 </LinearLayout>

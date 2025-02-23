@@ -4,12 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="30dp"
+    android:background="@drawable/bg_3"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:gravity="center"
+            android:textSize="55sp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/white"/>
 
         <!-- Student Number -->
         <EditText
@@ -19,7 +30,9 @@
             android:hint="Student Number"
             android:inputType="number"
             android:importantForAutofill="no"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
         <!-- First Name -->
         <EditText
@@ -28,7 +41,9 @@
             android:layout_height="wrap_content"
             android:hint="First Name"
             android:inputType="textPersonName"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
         <!-- Middle Name (Optional) -->
         <EditText
@@ -37,7 +52,9 @@
             android:layout_height="wrap_content"
             android:hint="Middle Name (Optional)"
             android:inputType="textPersonName"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
         <!-- Last Name -->
         <EditText
@@ -46,7 +63,9 @@
             android:layout_height="wrap_content"
             android:hint="Last Name"
             android:inputType="textPersonName"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
         <!-- Contact Number -->
         <EditText
@@ -55,7 +74,9 @@
             android:layout_height="wrap_content"
             android:hint="Contact Number"
             android:inputType="phone"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
         <!-- Email -->
         <EditText
@@ -64,31 +85,65 @@
             android:layout_height="wrap_content"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
         <!-- Password Field with Toggle -->
-        <EditText
-            android:id="@+id/etPassword"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword|textVisiblePassword"
-            android:importantForAutofill="no"
-            android:drawableEnd="@android:drawable/ic_menu_view"
-            android:layout_marginBottom="12dp"
-            android:contentDescription="Password input field with visibility toggle" />
+            android:layout_marginBottom="12dp">
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:paddingEnd="50dp"
+                android:fontFamily="@font/roboto"/>
+
+            <ImageButton
+                android:id="@+id/btnTogglePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_view"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="Toggle Password"/>
+        </RelativeLayout>
 
         <!-- Confirm Password Field with Toggle -->
-        <EditText
-            android:id="@+id/etVerifyPassword"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Verify Password"
-            android:inputType="textPassword|textVisiblePassword"
-            android:importantForAutofill="no"
-            android:drawableEnd="@android:drawable/ic_menu_view"
-            android:layout_marginBottom="24dp"
-            android:contentDescription="Confirm password input field with visibility toggle" />
+            android:layout_marginBottom="24dp">
+
+            <EditText
+                android:id="@+id/etVerifyPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Verify Password"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:paddingEnd="50dp"
+                android:fontFamily="@font/roboto"/>
+
+            <ImageButton
+                android:id="@+id/btnToggleVerifyPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_view"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="Toggle Confirm Password"/>
+        </RelativeLayout>
 
         <!-- Sign Up Button -->
         <Button
@@ -98,9 +153,10 @@
             android:text="Sign Up"
             android:layout_gravity="center"
             android:paddingVertical="12dp"
-            android:backgroundTint="#8A4DD0"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:textColor="@color/white"
+            android:backgroundTint="@color/buttonColor"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto"/>
 
         <!-- Already Have an Account -->
         <TextView
@@ -109,11 +165,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Already have an account? Log in"
-            android:textColor="#8A4DD0"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:paddingTop="16dp"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:textColorHint="@color/white"/>
 
     </LinearLayout>
 </ScrollView>
