@@ -22,7 +22,6 @@
             android:layout_height="70dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_placeholder"
-            android:background="?attr/selectableItemBackground"
             android:contentDescription="Product Image"/>
 
         <!-- Product Info -->
@@ -52,6 +51,15 @@
                 android:layout_marginTop="4dp"/>
 
             <TextView
+                android:id="@+id/productSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Size: M"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
                 android:id="@+id/productQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,6 +68,18 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="4dp"/>
         </LinearLayout>
+
+        <!-- Delete Button -->
+        <ImageButton
+            android:id="@+id/deleteProduct"
+            android:layout_width="43dp"
+            android:layout_height="60dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Delete"
+            android:padding="4dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_trash" />
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

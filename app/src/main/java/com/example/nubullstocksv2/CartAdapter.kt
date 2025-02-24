@@ -5,11 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 
-class CartAdapter(private val context: Context, private val cartItems: List<CartItem>) : BaseAdapter() {
+class CartAdapter(
+    private val context: Context,
+    private val cartItems: List<CartItem>,
+    private val onDelete: (String, Int) -> Unit // Function to handle item deletion
+) : BaseAdapter() {
 
     override fun getCount(): Int {
         return cartItems.size
@@ -34,6 +39,7 @@ class CartAdapter(private val context: Context, private val cartItems: List<Cart
             holder.productPrice = itemView.findViewById(R.id.productPrice)
             holder.productQuantity = itemView.findViewById(R.id.productQuantity)
             holder.productImage = itemView.findViewById(R.id.productImage)
+            holder.deleteButton = itemView.findViewById(R.id.deleteProduct)
 
             itemView.tag = holder
         } else {
@@ -43,12 +49,17 @@ class CartAdapter(private val context: Context, private val cartItems: List<Cart
 
         val cartItem = cartItems[position]
         holder.productName.text = cartItem.productName
-        holder.productPrice.text = "₱${cartItem.productPrice}"
+        holder.productPrice.text = "₱%.2f".format(cartItem.productPrice)
         holder.productQuantity.text = "Quantity: ${cartItem.quantity}"
 
         Glide.with(context)
             .load(cartItem.productImageUrl)
             .into(holder.productImage)
+
+        // Handle item deletion
+        holder.deleteButton.setOnClickListener {
+            onDelete(cartItem.productId, position) // Pass productId and position
+        }
 
         return itemView
     }
@@ -58,5 +69,6 @@ class CartAdapter(private val context: Context, private val cartItems: List<Cart
         lateinit var productPrice: TextView
         lateinit var productQuantity: TextView
         lateinit var productImage: ImageView
+        lateinit var deleteButton: ImageButton
     }
 }

@@ -13,6 +13,12 @@ class QRCodeActivity : AppCompatActivity() {
         binding = ActivityQrCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Get total price from Intent
+        val totalPrice = intent.getDoubleExtra("TOTAL_PRICE", 0.0)
+
+        // Set the total price text
+        binding.totalPriceText.text = "Total Price: ₱%.2f".format(totalPrice)
+
         // Back button click listener
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, PaymentActivity::class.java)

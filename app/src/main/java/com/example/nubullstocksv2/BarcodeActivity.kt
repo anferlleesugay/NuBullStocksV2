@@ -1,6 +1,5 @@
 package com.example.nubullstocksv2
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nubullstocksv2.databinding.ActivityBarcodeBinding
@@ -14,11 +13,13 @@ class BarcodeActivity : AppCompatActivity() {
         binding = ActivityBarcodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Handle back button click to navigate to PaymentActivity
+        // Get total price from intent and display it
+        val totalPrice = intent.getDoubleExtra("TOTAL_PRICE", 0.0)
+        binding.totalPriceText.text = "Total Price: ₱%.2f".format(totalPrice)
+
+        // Handle back button click to finish the activity and return to PaymentActivity
         binding.btnBack.setOnClickListener {
-            val intent = Intent(this, PaymentActivity::class.java)
-            startActivity(intent)
-            finish() // Close current activity
+            finish() // Close current activity and go back
         }
     }
 }
